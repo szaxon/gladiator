@@ -2,6 +2,7 @@ package com.codecool.gladiator.logic;
 
 import com.codecool.gladiator.data.gladiator.Gladiator;
 import com.codecool.gladiator.logic.util.HitOrMiss;
+import com.codecool.gladiator.view.DisplayColoredText;
 import com.codecool.gladiator.view.ConsoleView;
 import com.codecool.gladiator.view.Gameplay;
 import com.codecool.gladiator.view.Viewable;
@@ -27,15 +28,19 @@ public class Combat {
         Colosseum colosseum = new Colosseum();
         viewable.display(colosseum.starterMessage(firstAttacker, secondAttacker));
         gameplay.pressEnter();
+        display.displayWhiteText(colosseum.starterMessage(firstAttacker, secondAttacker));
+
         while (!firstAttacker.isDefeated() || !secondAttacker.isDefeated()) {
             hitOrMiss(firstAttacker, secondAttacker);
             if (firstAttacker.isDefeated()) {
                 viewable.display(firstAttacker.getFullName() + " has died, " + secondAttacker.getFullName() + " wins!");
                 gameplay.pressEnter();
+                display.displayBlueText(firstAttacker.getFullName() + " has died, " + secondAttacker.getFullName() + " wins!");
                 return secondAttacker;
             } else if (secondAttacker.isDefeated()) {
                 viewable.display(secondAttacker.getFullName() + " has died, " + firstAttacker.getFullName() + " wins!");
                 gameplay.pressEnter();
+                display.displayBlueText(secondAttacker.getFullName() + " has died, " + firstAttacker.getFullName() + " wins!");
                 return firstAttacker;
             }
             hitOrMiss(secondAttacker, firstAttacker);
