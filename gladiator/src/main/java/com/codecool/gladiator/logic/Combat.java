@@ -46,8 +46,8 @@ public class Combat {
         if (hit) {
             double damage = calculateDamage(attacker);
             defender.decreaseHp(damage);
-            addToCombatLog(attacker.getFullName() + " deals " + damage + "damage");
-        } else addToCombatLog(attacker.getFullName() + " missed");
+            addToCombatLog(attacker.hitMessage(damage));
+        } else addToCombatLog(attacker.missMessage());
     }
 
     private double calculateDamage(Gladiator attacker) {
