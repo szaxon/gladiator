@@ -15,6 +15,7 @@ public class Combat {
     private Gladiator secondAttacker;
     private final List<String> combatLog = new ArrayList<>();
     private Viewable viewable = new ConsoleView();
+    private DisplayColoredText display = new DisplayColoredText();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Gladiator simulate(List<Gladiator> gladiatorPair) {
