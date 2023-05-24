@@ -3,6 +3,8 @@ package com.codecool.gladiator.logic.gladiator_factory;
 import com.codecool.gladiator.data.gladiator.*;
 import com.codecool.gladiator.logic.RandomNumberGenerator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GladiatorFactory {
@@ -16,37 +18,43 @@ public class GladiatorFactory {
     private int randomDEX;
     private GladiatorName randomName;
     private GladiatorType randomType;
-    private static final GladiatorName[] gladiatorNames = GladiatorName.values();
-    private static final GladiatorType[] gladiatorTypes = GladiatorType.values();
-    private final List<Gladiator> creatorList = List.of(
-            createArcher(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
-            createAssassin(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
-            createBrutal(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
-            createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
-            createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX)
-    );
-    private final RandomNumberGenerator randomNumberGenerator= new RandomNumberGenerator();
-    public Gladiator generateRandomGladiator() {
-       randomLvl = randomNumberGenerator.generateRandom(LEVEL_RANGE_START, LEVEL_RANGE_END);
-       randomHP = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
-       randomSP = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
-       randomDEX = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
-       randomName = gladiatorNames[randomNumberGenerator.generateRandom(0,gladiatorNames.length)];
-       randomType = gladiatorTypes[randomNumberGenerator.generateRandom(0,gladiatorTypes.length)];
-
-       return creatorList.get(randomNumberGenerator.generateRandom(0,creatorList.size()));
+    private static final List<GladiatorName> gladiatorNames = Arrays.stream(GladiatorName.values()).toList();
+    private static final List<GladiatorType> gladiatorTypes = Arrays.stream(GladiatorType.values()).toList();
+    private final List<Gladiator> creatorList = new ArrayList<>();
+    public GladiatorFactory() {
+        generateRandomGladiator();
+        creatorList.add(createArcher(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
+        creatorList.add(createAssassin(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
+        creatorList.add(createBrutal(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
+        creatorList.add(createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
+        creatorList.add(createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
     }
 
-    private Archer createArcher(GladiatorName randomName,GladiatorType randomType, int hp, int sp, int dex, int lvl){
+    public Gladiator generateRandomGladiator() {
+        randomLvl = randomNumberGenerator.generateRandom(LEVEL_RANGE_START, LEVEL_RANGE_END);
+        randomHP = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
+        randomSP = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
+        randomDEX = randomNumberGenerator.generateRandom(STATISTICS_RANGE_START, STATISTICS_RANGE_END);
+        randomName = gladiatorNames.get(randomNumberGenerator.generateRandom(0, gladiatorNames.size()));
+        randomType = gladiatorTypes.get(randomNumberGenerator.generateRandom(0, gladiatorTypes.size()));
+        return creatorList.get(randomNumberGenerator.generateRandom(0, creatorList.size()));
+    }
+
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+    private Archer createArcher(GladiatorName randomName, GladiatorType randomType, int hp, int sp, int dex, int lvl) {
         return new Archer(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX);
     }
-    private Assassin createAssassin(GladiatorName randomName,GladiatorType randomType, int hp, int sp, int dex, int lvl){
+
+    private Assassin createAssassin(GladiatorName randomName, GladiatorType randomType, int hp, int sp, int dex, int lvl) {
         return new Assassin(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX);
     }
-    private Brutal createBrutal(GladiatorName randomName,GladiatorType randomType, int hp, int sp, int dex, int lvl){
+
+    private Brutal createBrutal(GladiatorName randomName, GladiatorType randomType, int hp, int sp, int dex, int lvl) {
         return new Brutal(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX);
     }
-    private Swordsman createSwordsman(GladiatorName randomName,GladiatorType randomType, int hp, int sp, int dex, int lvl){
+
+    private Swordsman createSwordsman(GladiatorName randomName, GladiatorType randomType, int hp, int sp, int dex, int lvl) {
         return new Swordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX);
     }
 }
