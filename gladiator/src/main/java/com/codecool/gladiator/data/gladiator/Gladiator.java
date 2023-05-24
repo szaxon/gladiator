@@ -35,4 +35,6 @@ public abstract class Gladiator {
     public void healUp(double health){currentHp += health;}
     public double getCurrentHp() {return currentHp;}
     public boolean isDefeated(){return currentHp < 0;}
+    public abstract String hitMessage(double damage);
+    public abstract String missMessage();
 }
