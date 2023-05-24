@@ -3,6 +3,7 @@ package com.codecool.gladiator.logic;
 import com.codecool.gladiator.data.gladiator.Gladiator;
 import com.codecool.gladiator.logic.util.HitOrMiss;
 import com.codecool.gladiator.view.ConsoleView;
+import com.codecool.gladiator.view.Gameplay;
 import com.codecool.gladiator.view.Viewable;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Combat {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Gladiator simulate(List<Gladiator> gladiatorPair) {
+        Gameplay gameplay = new Gameplay();
         if (gladiatorPair.get(0) == null) return gladiatorPair.get(1);
         else if (gladiatorPair.get(1) == null) return gladiatorPair.get(0);
         else if (gladiatorPair.get(0) == null && gladiatorPair.get(1) == null) return null;
@@ -24,14 +26,16 @@ public class Combat {
 
         Colosseum colosseum = new Colosseum();
         viewable.display(colosseum.starterMessage(firstAttacker, secondAttacker));
-
+        gameplay.pressEnter();
         while (!firstAttacker.isDefeated() || !secondAttacker.isDefeated()) {
             hitOrMiss(firstAttacker, secondAttacker);
             if (firstAttacker.isDefeated()) {
                 viewable.display(firstAttacker.getFullName() + " has died, " + secondAttacker.getFullName() + " wins!");
+                gameplay.pressEnter();
                 return secondAttacker;
             } else if (secondAttacker.isDefeated()) {
                 viewable.display(secondAttacker.getFullName() + " has died, " + firstAttacker.getFullName() + " wins!");
+                gameplay.pressEnter();
                 return firstAttacker;
             }
             hitOrMiss(secondAttacker, firstAttacker);

@@ -10,7 +10,7 @@ public class Tournament {
     private List<Gladiator> secondGroup;
     private List<Gladiator> finalGroup;
     private int stageOfTournament = 0;
-    private List<String> startingPoints = new ArrayList<>(List.of("f1", "f2", "f3", "f4", "w1", "w2", "W"));
+    private final List<String> startingPoints = new ArrayList<>(List.of("f1-----", "f2-----", "f3-----", "f4-----", "w1", "w2", "W"));
 
     private String combatTree = """
             f1-----
