@@ -39,4 +39,8 @@ public abstract class Gladiator {
     public String getGladiatorName() {return gladiatorName.toString();}
     public abstract String hitMessage(double damage);
     public abstract String missMessage();
+
+    public int getLevel() {
+        return level;
+    }
 }

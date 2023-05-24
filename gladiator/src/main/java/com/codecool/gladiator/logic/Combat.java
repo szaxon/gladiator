@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Combat {
-    Gladiator firstAttacker;
-    Gladiator secondAttacker;
+    private Gladiator firstAttacker;
+    private Gladiator secondAttacker;
     private final List<String> combatLog = new ArrayList<>();
+
 
     public Gladiator simulate(List<Gladiator> gladiatorPair) {
         if (gladiatorPair.get(0) == null) return gladiatorPair.get(1);
@@ -17,7 +18,10 @@ public class Combat {
         else if (gladiatorPair.get(0) == null && gladiatorPair.get(1) == null) return null;
 
         selectFirstAttacker(gladiatorPair);
-        //display starter message
+
+        Colosseum colosseum = new Colosseum();
+        colosseum.starterMessage(firstAttacker, secondAttacker);
+
         while (!firstAttacker.isDefeated() || !secondAttacker.isDefeated()) {
             hitOrMiss(firstAttacker, secondAttacker);
             if (firstAttacker.isDefeated()) {

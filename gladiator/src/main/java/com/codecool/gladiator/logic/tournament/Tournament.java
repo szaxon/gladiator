@@ -27,7 +27,7 @@ public class Tournament {
         startingPoints.remove(0);
     }
 
-    public void allAll(List<Gladiator> allGladiators) {
+    public void addAll(List<Gladiator> allGladiators) {
         for (int i = 0; i < allGladiators.size(); i++) {
             combatTree = combatTree.replace(startingPoints.get(i), allGladiators.get(i).getGladiatorName());
             startingPoints.remove(i);
