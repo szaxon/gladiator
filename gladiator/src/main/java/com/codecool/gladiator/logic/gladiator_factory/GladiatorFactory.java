@@ -1,6 +1,7 @@
-package com.codecool.gladiator.logic;
+package com.codecool.gladiator.logic.gladiator_factory;
 
 import com.codecool.gladiator.data.gladiator.*;
+import com.codecool.gladiator.logic.RandomNumberGenerator;
 
 import java.util.List;
 
