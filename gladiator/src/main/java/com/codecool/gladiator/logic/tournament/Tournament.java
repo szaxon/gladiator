@@ -9,6 +9,7 @@ public class Tournament {
     private List<Gladiator> firstGroup;
     private List<Gladiator> secondGroup;
     private List<Gladiator> finalGroup;
+    private int stageOfTournament = 0;
     private List<String> startingPoints = new ArrayList<>(List.of("f1", "f2", "f3", "f4", "w1", "w2", "W"));
 
     private String combatTree = """
@@ -23,14 +24,14 @@ public class Tournament {
             f4-----""";
 
     public void add(Gladiator gladiator) {
-        combatTree = combatTree.replace(startingPoints.get(0), gladiator.getGladiatorName());
-        startingPoints.remove(0);
+        combatTree = combatTree.replaceFirst(startingPoints.get(stageOfTournament), gladiator.getGladiatorName());
+        stageOfTournament += 1;
     }
 
-    public void allAll(List<Gladiator> allGladiators) {
+    public void addAll(List<Gladiator> allGladiators) {
         for (int i = 0; i < allGladiators.size(); i++) {
-            combatTree = combatTree.replace(startingPoints.get(i), allGladiators.get(i).getGladiatorName());
-            startingPoints.remove(i);
+            combatTree = combatTree.replaceFirst(startingPoints.get(stageOfTournament), allGladiators.get(i).getGladiatorName());
+            stageOfTournament += 1;
         }
     }
 

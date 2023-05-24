@@ -8,10 +8,11 @@ public class Swordsman extends Gladiator{
         maxDex = dex * StatisticMultiplier.MEDIUM.getMultiplier() * level;
         maxHp = hp * StatisticMultiplier.MEDIUM.getMultiplier()* level;
         maxSp = sp * StatisticMultiplier.MEDIUM.getMultiplier()* level;
+        currentHp = maxHp;
     }
     @Override
     public String hitMessage(double damage) {
-        return this.getFullName() + "'s sword cuts off the enemy's legs, dealing " + damage + "damage";
+        return this.getFullName() + "'s sword cuts off the enemy's legs, dealing " + (int) damage + " damage";
     }
 
     @Override

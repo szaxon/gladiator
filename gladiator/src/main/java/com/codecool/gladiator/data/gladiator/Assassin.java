@@ -9,10 +9,11 @@ public class Assassin extends Gladiator {
         maxDex = dex * StatisticMultiplier.HIGH.getMultiplier() * level;
         maxHp = hp * StatisticMultiplier.LOW.getMultiplier() * level;
         maxSp = sp * StatisticMultiplier.HIGH.getMultiplier() * level;
+        currentHp = maxHp;
     }
     @Override
     public String hitMessage(double damage) {
-        return this.getFullName() + " sneaks and jumps and start biting, dealing " + damage + "damage";
+        return this.getFullName() + " sneaks and jumps and start biting, dealing " + (int) damage + " damage";
     }
 
     @Override

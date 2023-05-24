@@ -8,11 +8,13 @@ public class Archer extends Gladiator {
         maxDex = dex * StatisticMultiplier.HIGH.getMultiplier() * level;
         maxHp = hp * StatisticMultiplier.MEDIUM.getMultiplier() * level;
         maxSp = sp * StatisticMultiplier.MEDIUM.getMultiplier() * level;
+        currentHp = maxHp;
+
     }
 
     @Override
     public String hitMessage(double damage) {
-        return this.getFullName() + "'s shiny long sharp arrow pierces the liver, dealing " + damage + "damage";
+        return this.getFullName() + "'s shiny long sharp arrow pierces the liver, dealing " + (int) damage + " damage";
     }
 
     @Override
