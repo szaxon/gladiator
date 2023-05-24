@@ -18,7 +18,13 @@ public class GladiatorFactory {
     private GladiatorType randomType;
     private static final GladiatorName[] gladiatorNames = GladiatorName.values();
     private static final GladiatorType[] gladiatorTypes = GladiatorType.values();
-    private final List<Gladiator> creatorList = List.of(createArcher(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX), createAssassin(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX), createBrutal(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX), createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX), createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX));
+    private final List<Gladiator> creatorList = List.of(
+            createArcher(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
+            createAssassin(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
+            createBrutal(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
+            createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX),
+            createSwordsman(randomName, randomType, randomLvl, randomHP, randomSP, randomDEX)
+    );
     private final RandomNumberGenerator randomNumberGenerator= new RandomNumberGenerator();
     public Gladiator generateRandomGladiator() {
        randomLvl = randomNumberGenerator.generateRandom(LEVEL_RANGE_START, LEVEL_RANGE_END);
