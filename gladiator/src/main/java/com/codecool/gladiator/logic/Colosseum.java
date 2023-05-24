@@ -10,12 +10,16 @@ import java.util.Set;
 
 public class Colosseum {
 
-    public List<List<Gladiator>> generateGladiatorGroups(int numberOfGladiators) {
-    List<Gladiator> gladiatorList = new ArrayList<>();
-        for (int i = 0; i < numberOfGladiators; i++) {
-            gladiatorList.add(new GladiatorFactory().getGladiator());
+    public List<List<Gladiator>> generateGladiatorGroups(int numberOfGladiators, List<Gladiator> gladiators) {
+        if(gladiators == null){
+            List<Gladiator> gladiatorList = new ArrayList<>();
+            for (int i = 0; i < numberOfGladiators; i++) {
+                gladiatorList.add(new GladiatorFactory().getGladiator());
+            }
+            return splitGladiatorsIntoPairs(gladiatorList);
+        } else {
+            return splitGladiatorsIntoPairs(gladiators);
         }
-        return splitGladiatorsIntoPairs(gladiatorList);
     }
 
     private List<List<Gladiator>> splitGladiatorsIntoPairs(List<Gladiator> gladiatorList) {
