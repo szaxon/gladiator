@@ -1,6 +1,7 @@
 package com.codecool.gladiator.logic;
 
 import com.codecool.gladiator.data.gladiator.Gladiator;
+import com.codecool.gladiator.logic.gladiator_factory.GladiatorFactory;
 import com.codecool.gladiator.view.ConsoleView;
 
 import java.util.ArrayList;
@@ -19,9 +20,8 @@ public class Colosseum {
         return gladiatorSet;
     }
 
-//    public splitGladiatorsIntoPairs(List<Gladiator> gladiatorList) {
-//
-//    }
+   /*public splitGladiatorsIntoPairs(List<Gladiator> gladiatorList) {
+    }*/
 
     public String starterMessage(Gladiator fighter1, Gladiator fighter2) {
         return "Duel " + fighter1 + " versus " + fighter2 + ":\n" + fighter1.getFullName() +
