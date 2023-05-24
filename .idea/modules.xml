@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Névtelen.iml" filepath="$PROJECT_DIR$/.idea/Névtelen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gladiator/gladiator.iml" filepath="$PROJECT_DIR$/gladiator/gladiator.iml" />
     </modules>
   </component>
 </project>

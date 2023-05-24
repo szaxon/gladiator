@@ -35,4 +35,6 @@ public abstract class Gladiator {
 
     public double getCurrentHp() {return currentHp;}
     public boolean isDefeated(){return currentHp < 0;}
+
+    public String getGladiatorName() {return gladiatorName.toString();}
 }
