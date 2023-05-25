@@ -13,8 +13,8 @@ import java.util.List;
 public class Combat {
     private Gladiator firstAttacker;
     private Gladiator secondAttacker;
-    private final List<String> combatLog = new ArrayList<>();
-    private Viewable viewable = new ConsoleView();
+   // private final List<String> combatLog = new ArrayList<>();
+   // private Viewable viewable = new ConsoleView();
     private DisplayColoredText display = new DisplayColoredText();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
@@ -27,21 +27,19 @@ public class Combat {
         selectOrderOfAttackers(gladiatorPair);
 
         Colosseum colosseum = new Colosseum();
-        viewable.display(colosseum.starterMessage(firstAttacker, secondAttacker));
+        display.displayWhiteText(colosseum.starterMessage(firstAttacker, secondAttacker));
         gameplay.pressEnter();
         display.displayWhiteText(colosseum.starterMessage(firstAttacker, secondAttacker));
 
         while (!firstAttacker.isDefeated() || !secondAttacker.isDefeated()) {
             hitOrMiss(firstAttacker, secondAttacker);
             if (firstAttacker.isDefeated()) {
-                viewable.display(firstAttacker.getFullName() + " has died, " + secondAttacker.getFullName() + " wins!");
-                gameplay.pressEnter();
                 display.displayBlueText(firstAttacker.getFullName() + " has died, " + secondAttacker.getFullName() + " wins!");
+                gameplay.pressEnter();
                 return secondAttacker;
             } else if (secondAttacker.isDefeated()) {
-                viewable.display(secondAttacker.getFullName() + " has died, " + firstAttacker.getFullName() + " wins!");
-                gameplay.pressEnter();
                 display.displayBlueText(secondAttacker.getFullName() + " has died, " + firstAttacker.getFullName() + " wins!");
+                gameplay.pressEnter();
                 return firstAttacker;
             }
             hitOrMiss(secondAttacker, firstAttacker);
@@ -64,8 +62,8 @@ public class Combat {
             double damage = calculateDamage(attacker);
 
             defender.decreaseHp(damage);
-            viewable.display(attacker.hitMessage(damage));
-        } else viewable.display(attacker.missMessage());
+            display.displayGreenText(attacker.hitMessage(damage));
+        } else display.displayYellowText(attacker.missMessage());
     }
 
     private double calculateDamage(Gladiator attacker) {
@@ -76,9 +74,9 @@ public class Combat {
         return attacker.getMaxSp() * multiplier;
     }
 
-    public List<String> getCombatLog() {
-        return combatLog;
-    }
+//    public List<String> getCombatLog() {
+//        return combatLog;
+//   }
 
 //    private void addToCombatLog(String message) {
 //        combatLog.add(message);
