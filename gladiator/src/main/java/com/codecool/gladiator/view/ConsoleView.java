@@ -14,9 +14,9 @@ public class ConsoleView implements Viewable {
     @Override
     public int getNumberBetween(int num) {
         int number = 0;
-        int x = (int) Math.sqrt(num);
-        while (Math.pow(x,2) != num) {
-            display("the number has to be a squared form of 2");
+        while ((int)(Math.ceil((Math.log(number) / Math.log(2))))
+                == (int)(Math.floor(((Math.log(number) / Math.log(2)))))) {
+            display("the number has to be a power form of 2");
             number = sc.nextInt();
         }
         return number;
