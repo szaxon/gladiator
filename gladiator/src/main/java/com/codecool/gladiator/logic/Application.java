@@ -11,27 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
-    private List<List<Gladiator>> gladiatorGroups;
-    private Gameplay gameplay = new Gameplay();
-    private Viewable viewable = new ConsoleView();
-    private Combat combat = new Combat();
-    private Tournament tournament = new Tournament();
+    private final Gameplay gameplay = new Gameplay();
+    private final Viewable viewable = new ConsoleView();
+    private final Combat combat = new Combat();
+    private final Tournament tournament = new Tournament();
     Colosseum colosseum = new Colosseum();
     public void run() {
         int amountOfGladiators = gameplay.inputGladiatorNumber();
         tournament.createTree(amountOfGladiators);
         new DisplayColoredText().displayImage();
-        gladiatorGroups = colosseum.generateGladiatorGroups(amountOfGladiators, null);
+        List<List<Gladiator>> gladiatorGroups = colosseum.generateGladiatorGroups(amountOfGladiators, null);
         for (List<Gladiator> gladiatorGroup : gladiatorGroups) {
             tournament.addAll(gladiatorGroup);
         }
-        simulateFight(new ArrayList<>(gladiatorGroups));
+        simulateTournament(new ArrayList<>(gladiatorGroups));
     }
 
-    private Gladiator simulateFight(List<List<Gladiator>> gladiatorGroups) {
+    private void simulateTournament(List<List<Gladiator>> gladiatorGroups) {
         boolean winner = false;
-        Gladiator winnerGladiator = null;
         List<List<Gladiator>> currentGroups = new ArrayList<>(gladiatorGroups);
+        //tournament runs while we get a winner
         while(!winner){
             List<Gladiator> survived = new ArrayList<>();
             //display tree
@@ -42,16 +41,15 @@ public class Application {
                 Gladiator winnerOfRound = combat.simulate(gladiatorGroup);
                 tournament.add(winnerOfRound);
                 survived.add(winnerOfRound);
-                System.out.println(tournament.returnTree());
+                viewable.display(tournament.returnTree());
                 gameplay.pressEnter();
             }
+            //check for winner
             if(survived.size() == 1){
                 winner = true;
-                winnerGladiator = survived.get(0);
             } else {
                 currentGroups = colosseum.generateGladiatorGroups(0, survived);
             }
         }
-        return winnerGladiator;
     }
 }
