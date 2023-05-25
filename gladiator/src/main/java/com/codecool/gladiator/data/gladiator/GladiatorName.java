@@ -1,6 +1,8 @@
 package com.codecool.gladiator.data.gladiator;
 
 public enum GladiatorName {
+    PAous,
+    Imolus,
     Csharpus,
     Reactuss,
     Phytonus,
@@ -19,10 +21,9 @@ public enum GladiatorName {
     Flóriánus,
     Botillus,
     Korius,
-    Lacius,
+    Lacus,
     Áronus,
     Bokorus,
-    Linus,
     TGáborus,
     Esztus,
     Dorottyus,
