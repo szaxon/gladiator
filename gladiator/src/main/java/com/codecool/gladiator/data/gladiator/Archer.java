@@ -11,15 +11,4 @@ public class Archer extends Gladiator {
         currentHp = maxHp;
 
     }
-
-    @Override
-    public String hitMessage(double damage) {
-        return this.getFullName() + "'s shiny long sharp arrow pierces the liver, dealing " + (int) damage + " damage";
-    }
-
-    @Override
-    public String missMessage() {
-        return this.getFullName() + " says not today";
-    }
-
 }

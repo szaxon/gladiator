@@ -10,14 +10,5 @@ public class Swordsman extends Gladiator{
         maxSp = sp * StatisticMultiplier.MEDIUM.getMultiplier()* level;
         currentHp = maxHp;
     }
-    @Override
-    public String hitMessage(double damage) {
-        return this.getFullName() + "'s sword cuts off the enemy's legs, dealing " + (int) damage + " damage";
-    }
-
-    @Override
-    public String missMessage() {
-        return this.getFullName() + "'s sword brakes while attacking";
-    }
 
 }
