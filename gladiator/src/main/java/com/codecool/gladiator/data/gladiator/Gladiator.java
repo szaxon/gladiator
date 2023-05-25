@@ -2,10 +2,10 @@ package com.codecool.gladiator.data.gladiator;
 
 import com.codecool.gladiator.data.StatisticMultiplier;
 
-public abstract class Gladiator {
+public class Gladiator {
 
     private final GladiatorName gladiatorName;
-    private GladiatorType gladiatorType;
+    private final GladiatorType gladiatorType;
     protected StatisticMultiplier hpMultiplier;
     protected StatisticMultiplier spMultiplier;
     protected StatisticMultiplier dexMultiplier;
@@ -37,8 +37,12 @@ public abstract class Gladiator {
     public boolean isDefeated(){return currentHp < 0;}
 
     public String getGladiatorName() {return gladiatorName.toString();}
-    public abstract String hitMessage(double damage);
-    public abstract String missMessage();
+    public String hitMessage(double damage){
+        return this.getFullName() + this.gladiatorType.getHitMessage() + (int)damage + " damage";
+    };
+    public String missMessage(){
+        return this.getFullName() + this.gladiatorType.getMissMassage();
+    };
 
     public int getLevel() {
         return level;

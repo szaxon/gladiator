@@ -11,14 +11,5 @@ public class Brutal extends Gladiator {
         maxSp = sp * StatisticMultiplier.HIGH.getMultiplier() * level;
         currentHp = maxHp;
     }
-    @Override
-    public String hitMessage(double damage) {
-        return this.getFullName() + " slaps the life out his enemy dealing " +  (int) damage + " damage";
-    }
-
-    @Override
-    public String missMessage() {
-        return this.getFullName() + " slips and falls";
-    }
 
 }

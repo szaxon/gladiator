@@ -17,13 +17,16 @@ public class Application {
     private final Tournament tournament = new Tournament();
     Colosseum colosseum = new Colosseum();
     public void run() {
+        //get number of gladiators from player
         int amountOfGladiators = gameplay.inputGladiatorNumber();
         tournament.createTree(amountOfGladiators);
         new DisplayColoredText().displayImage();
+        //put gladiators into groups
         List<List<Gladiator>> gladiatorGroups = colosseum.generateGladiatorGroups(amountOfGladiators, null);
         for (List<Gladiator> gladiatorGroup : gladiatorGroups) {
             tournament.addAll(gladiatorGroup);
         }
+        //run tournament
         simulateTournament(new ArrayList<>(gladiatorGroups));
     }
 
