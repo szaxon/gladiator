@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tournament {
-    private List<Gladiator> firstGroup;
-    private List<Gladiator> secondGroup;
-    private List<Gladiator> finalGroup;
     private int stageOfTournament = 0;
     private final List<String> startingPoints = new ArrayList<>();
     private String combatTree;
     private int playerNum = 1;
 
     public void createTree(int num) {
+        combatTree = new Tree().drawTree(num);
+        createListForTournament(num);
+    }
+    private void createListForTournament(int num){
         int amountOfPlayers = num;
-        combatTree = new Tree().drawTree(amountOfPlayers);
         while (amountOfPlayers != 0) {
-            ;
             for (int i = 0; i < amountOfPlayers; i++) {
                 startingPoints.add("player" + playerNum);
             }
@@ -33,8 +32,8 @@ public class Tournament {
     }
 
     public void addAll(List<Gladiator> allGladiators) {
-        for (int i = 0; i < allGladiators.size(); i++) {
-            combatTree = combatTree.replaceFirst(startingPoints.get(stageOfTournament), allGladiators.get(i).getGladiatorName());
+        for (Gladiator allGladiator : allGladiators) {
+            combatTree = combatTree.replaceFirst(startingPoints.get(stageOfTournament), allGladiator.getGladiatorName());
             stageOfTournament += 1;
         }
     }

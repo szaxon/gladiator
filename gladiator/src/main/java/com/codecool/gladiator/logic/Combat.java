@@ -10,8 +10,6 @@ import java.util.List;
 public class Combat {
     private Gladiator firstAttacker;
     private Gladiator secondAttacker;
-   // private final List<String> combatLog = new ArrayList<>();
-   // private Viewable viewable = new ConsoleView();
     private DisplayColoredText display = new DisplayColoredText();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
@@ -71,13 +69,6 @@ public class Combat {
         return attacker.getMaxSp() * multiplier;
     }
 
-//    public List<String> getCombatLog() {
-//        return combatLog;
-//   }
-
-//    private void addToCombatLog(String message) {
-//        combatLog.add(message);
-//    }
 
 
 }
