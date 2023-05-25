@@ -2,12 +2,9 @@ package com.codecool.gladiator.logic;
 
 import com.codecool.gladiator.data.gladiator.Gladiator;
 import com.codecool.gladiator.logic.util.HitOrMiss;
-import com.codecool.gladiator.view.DisplayColoredText;
-import com.codecool.gladiator.view.ConsoleView;
-import com.codecool.gladiator.view.Gameplay;
-import com.codecool.gladiator.view.Viewable;
+import com.codecool.gladiator.ui.DisplayColoredText;
+import com.codecool.gladiator.ui.Gameplay;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Combat {

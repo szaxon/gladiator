@@ -1,4 +1,4 @@
-package com.codecool.gladiator.view;
+package com.codecool.gladiator.ui;
 
 public class DisplayColoredText {
     public static final String ANSI_RESET = "\u001B[0m";

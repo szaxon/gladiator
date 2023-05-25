@@ -2,10 +2,10 @@ package com.codecool.gladiator.logic;
 
 import com.codecool.gladiator.data.gladiator.Gladiator;
 import com.codecool.gladiator.logic.tournament.Tournament;
-import com.codecool.gladiator.view.ConsoleView;
-import com.codecool.gladiator.view.DisplayColoredText;
-import com.codecool.gladiator.view.Gameplay;
-import com.codecool.gladiator.view.Viewable;
+import com.codecool.gladiator.ui.ConsoleView;
+import com.codecool.gladiator.ui.DisplayColoredText;
+import com.codecool.gladiator.ui.Gameplay;
+import com.codecool.gladiator.ui.Viewable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,10 @@ public class Application {
     private Tournament tournament = new Tournament();
     Colosseum colosseum = new Colosseum();
     public void run() {
+        int amountOfGladiators = gameplay.inputGladiatorNumber();
+        tournament.createTree(amountOfGladiators);
         new DisplayColoredText().displayImage();
-        gladiatorGroups = colosseum.generateGladiatorGroups(4, null);
+        gladiatorGroups = colosseum.generateGladiatorGroups(amountOfGladiators, null);
         for (List<Gladiator> gladiatorGroup : gladiatorGroups) {
             tournament.addAll(gladiatorGroup);
         }

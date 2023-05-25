@@ -1,9 +1,4 @@
-package com.codecool.gladiator.view;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+package com.codecool.gladiator.ui;
 
 class ConsoleViewTest {
 //

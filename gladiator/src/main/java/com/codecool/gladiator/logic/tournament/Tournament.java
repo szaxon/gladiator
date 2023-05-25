@@ -10,18 +10,22 @@ public class Tournament {
     private List<Gladiator> secondGroup;
     private List<Gladiator> finalGroup;
     private int stageOfTournament = 0;
-    private final List<String> startingPoints = new ArrayList<>(List.of("f1-----", "f2-----", "f3-----", "f4-----", "w1", "w2", "W"));
+    private final List<String> startingPoints = new ArrayList<>();
+    private String combatTree;
+    private int playerNum = 1;
 
-    private String combatTree = """
-            f1-----
-            |      |--------w1
-            f2-----          |
-                             |
-                             |----------W
-                             |
-            f3-----          |
-                   |--------w2
-            f4-----""";
+    public void createTree(int num) {
+        int amountOfPlayers = num;
+        combatTree = new Tree().drawTree(amountOfPlayers);
+        while (amountOfPlayers != 0) {
+            ;
+            for (int i = 0; i < amountOfPlayers; i++) {
+                startingPoints.add("player" + playerNum);
+            }
+            amountOfPlayers = amountOfPlayers / 2;
+            playerNum += 1;
+        }
+    }
 
     public void add(Gladiator gladiator) {
         combatTree = combatTree.replaceFirst(startingPoints.get(stageOfTournament), gladiator.getGladiatorName());

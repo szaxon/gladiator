@@ -1,4 +1,4 @@
-package com.codecool.gladiator.view;
+package com.codecool.gladiator.ui;
 
 import java.util.Scanner;
 
@@ -10,9 +10,6 @@ public class Gameplay {
     }
     public int inputGladiatorNumber(){
         System.out.println("please input how many gladiators you  want below");
-        Scanner scanner = new Scanner(System.in);
-        ConsoleView consoleView = new ConsoleView();
-        int hehe = consoleView.getNumberBetween(scanner.nextInt());
-        return hehe;
+        return new Scanner(System.in).nextInt();
     }
 }
