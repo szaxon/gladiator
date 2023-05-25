@@ -9,10 +9,11 @@ public class Brutal extends Gladiator {
         maxDex = dex * StatisticMultiplier.LOW.getMultiplier() * level;
         maxHp = hp * StatisticMultiplier.HIGH.getMultiplier() * level;
         maxSp = sp * StatisticMultiplier.HIGH.getMultiplier() * level;
+        currentHp = maxHp;
     }
     @Override
     public String hitMessage(double damage) {
-        return this.getFullName() + " slaps the life out his enemy dealing " + damage + "damage";
+        return this.getFullName() + " slaps the life out his enemy dealing " +  (int) damage + " damage";
     }
 
     @Override

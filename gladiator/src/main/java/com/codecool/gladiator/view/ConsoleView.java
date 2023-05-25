@@ -12,10 +12,11 @@ public class ConsoleView implements Viewable {
     }
 
     @Override
-    public int getNumberBetween(int lowerBoundInclusive, int upperBoundExclusive) {
+    public int getNumberBetween(int num) {
         int number = 0;
-        while (number < lowerBoundInclusive || number > upperBoundExclusive) {
-            display("Please give me a number between " + lowerBoundInclusive + " and " + upperBoundExclusive + "!");
+        while ((int)(Math.ceil((Math.log(number) / Math.log(2))))
+                == (int)(Math.floor(((Math.log(number) / Math.log(2)))))) {
+            display("the number has to be a power form of 2");
             number = sc.nextInt();
         }
         return number;

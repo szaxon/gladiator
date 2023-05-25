@@ -22,7 +22,7 @@ public abstract class Gladiator {
         this.level = level;
     }
     public String getFullName() {
-        return gladiatorType.toString() + gladiatorName.toString();
+        return gladiatorType.toString().charAt(0)  + gladiatorType.toString().substring(1).toLowerCase()+ " " +gladiatorName.toString();
     }
 
     public void levelUp() {
