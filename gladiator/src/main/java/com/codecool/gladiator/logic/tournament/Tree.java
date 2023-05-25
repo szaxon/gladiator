@@ -1,4 +1,4 @@
-package com.codecool.gladiator.view;
+package com.codecool.gladiator.logic.tournament;
 
 public class Tree {
 

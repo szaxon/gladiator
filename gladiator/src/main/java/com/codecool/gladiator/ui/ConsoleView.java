@@ -1,4 +1,4 @@
-package com.codecool.gladiator.view;
+package com.codecool.gladiator.ui;
 
 import java.util.Scanner;
 

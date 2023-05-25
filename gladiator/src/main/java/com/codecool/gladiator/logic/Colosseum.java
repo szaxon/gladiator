@@ -2,11 +2,9 @@ package com.codecool.gladiator.logic;
 
 import com.codecool.gladiator.data.gladiator.Gladiator;
 import com.codecool.gladiator.logic.gladiator_factory.GladiatorFactory;
-import com.codecool.gladiator.view.ConsoleView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Colosseum {
 
