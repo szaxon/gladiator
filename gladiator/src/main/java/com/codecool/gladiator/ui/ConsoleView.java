@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleView implements Viewable {
 
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     @Override
     public void display(String message) {
@@ -12,13 +12,27 @@ public class ConsoleView implements Viewable {
     }
 
     @Override
-    public int getNumberBetween(int num) {
-        int number = 0;
-        while ((int)(Math.ceil((Math.log(number) / Math.log(2))))
-                == (int)(Math.floor(((Math.log(number) / Math.log(2)))))) {
-            display("the number has to be a power form of 2");
-            number = sc.nextInt();
+    public int getAPowerToTwo(double num) {
+        double input = num;
+
+        Double compareNumber = check(num, input);
+        if (compareNumber == num) {
+            return (int)num;
+        } else {
+            do {
+                display("the number has to be a power of 2");
+                input = sc.nextInt();
+                return getAPowerToTwo(input);
+            } while (true);
         }
-        return number;
+    }
+    private static Double check(double num, double input) {
+        while (input % 2 == 0 || input == 1) {
+            if (input == 1) {
+                return num;
+            }
+            input = input / 2;
+        }
+        return 0d;
     }
 }

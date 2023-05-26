@@ -9,6 +9,7 @@ import com.codecool.gladiator.ui.Viewable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Application {
     private List<List<Gladiator>> gladiatorGroups;
@@ -17,8 +18,10 @@ public class Application {
     private Combat combat = new Combat();
     private Tournament tournament = new Tournament();
     Colosseum colosseum = new Colosseum();
+
     public void run() {
-        int amountOfGladiators = gameplay.inputGladiatorNumber();
+        int amountOfGladiators = getNumberOfGladiator();
+
         tournament.createTree(amountOfGladiators);
         new DisplayColoredText().displayImage();
         gladiatorGroups = colosseum.generateGladiatorGroups(amountOfGladiators, null);
@@ -28,11 +31,16 @@ public class Application {
         simulateFight(new ArrayList<>(gladiatorGroups));
     }
 
+    private int getNumberOfGladiator() {
+        viewable.display("please input a number, which is a power of two");
+        return viewable.getAPowerToTwo(new Scanner(System.in).nextDouble());
+    }
+
     private Gladiator simulateFight(List<List<Gladiator>> gladiatorGroups) {
         boolean winner = false;
         Gladiator winnerGladiator = null;
         List<List<Gladiator>> currentGroups = new ArrayList<>(gladiatorGroups);
-        while(!winner){
+        while (!winner) {
             List<Gladiator> survived = new ArrayList<>();
             //display tree
             viewable.display(tournament.returnTree());
@@ -45,7 +53,7 @@ public class Application {
                 System.out.println(tournament.returnTree());
                 gameplay.pressEnter();
             }
-            if(survived.size() == 1){
+            if (survived.size() == 1) {
                 winner = true;
                 winnerGladiator = survived.get(0);
             } else {

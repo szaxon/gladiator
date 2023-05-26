@@ -5,10 +5,7 @@ import com.codecool.gladiator.data.StatisticMultiplier;
 public abstract class Gladiator {
 
     private final GladiatorName gladiatorName;
-    private GladiatorType gladiatorType;
-    protected StatisticMultiplier hpMultiplier;
-    protected StatisticMultiplier spMultiplier;
-    protected StatisticMultiplier dexMultiplier;
+    private final GladiatorType gladiatorType;
     protected double maxHp;
     protected double maxSp;
     protected double maxDex;
@@ -32,7 +29,6 @@ public abstract class Gladiator {
     public double getMaxDex() {return maxDex;}
     public double getMaxHp() {return maxHp;}
     public void decreaseHp(double damage){currentHp -= damage;}
-    public void healUp(double health){currentHp += health;}
     public double getCurrentHp() {return currentHp;}
     public boolean isDefeated(){return currentHp < 0;}
 

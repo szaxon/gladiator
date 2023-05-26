@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GladiatorFactory {
-    private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private static final int STATISTICS_RANGE_START = 25;
     private static final int STATISTICS_RANGE_END = 100;
     private static final int LEVEL_RANGE_START = 1;

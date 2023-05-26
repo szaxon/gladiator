@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tournament {
-    private List<Gladiator> firstGroup;
-    private List<Gladiator> secondGroup;
-    private List<Gladiator> finalGroup;
     private int stageOfTournament = 0;
     private final List<String> startingPoints = new ArrayList<>();
     private String combatTree;
@@ -18,7 +15,7 @@ public class Tournament {
         int amountOfPlayers = num;
         combatTree = new Tree().drawTree(amountOfPlayers);
         while (amountOfPlayers != 0) {
-            ;
+
             for (int i = 0; i < amountOfPlayers; i++) {
                 startingPoints.add("player" + playerNum);
             }

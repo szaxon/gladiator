@@ -6,11 +6,13 @@ public class DisplayColoredText {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_WHITE = "\u001B[37m";
-
+    public static final String ANSI_RED = "\033[0;31m";
 
     public void displayBlueText(String message) {
         System.out.println(ANSI_BLUE + message + ANSI_RESET);
     }
+
+    public void displayRedText(String message) { System.out.println(ANSI_RED + message + ANSI_RESET); }
 
     public void displayGreenText(String message) {
         System.out.println(ANSI_GREEN + message + ANSI_RESET);
@@ -25,7 +27,7 @@ public class DisplayColoredText {
     }
 
     public void displayImage() {
-        System.out.println(ANSI_WHITE + "⠀⠀⠀⠀⠀⢀⣀⢠⣴⣶⣶⣶⣆⣤⣄⣀⠀⠀ ⠀⠀⣀⣄⣤⣆⣶⣶⣶⣴⢠⣀⢀⠀⠀⠀⠀⠀\n" +
+        System.out.println(ANSI_RED + "⠀⠀⠀⠀⠀⢀⣀⢠⣴⣶⣶⣶⣆⣤⣄⣀⠀⠀ ⠀⠀⣀⣄⣤⣆⣶⣶⣶⣴⢠⣀⢀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⢀⣤⣾⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⠆ ⠆⡿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣾⣤⢀⠀⠀\n" +
                 "⠀⢀⣺⣿⣿⣿⠿⣛⣭⣥⣴⣤⣬⣍⠛⠉⠀⠀ ⠀⠀⠉⠛⣍⣬⣤⣴⣥⣭⣛⠿⣿⣿⣿⣺⢀⠀\n" +
                 "⢀⣿⣿⣿⡿⡡⣚⣭⣵⣶⣦⣭⣙⠃⠀⠀⠀⠀ ⠀⠀⠀⠀⠃⣙⣭⣦⣶⣵⣭⣚⡡⡿⣿⣿⣿⢀\n" +
@@ -37,6 +39,4 @@ public class DisplayColoredText {
                 "⠀⠀⠀⠉⠛⠛⠛⠋⠁⢸⣿⣿⣿⣿⣄⠀⠀⠀ ⠀⠀⠀⣄⣿⣿⣿⣿⢸⠁⠋⠛⠛⠛⠉⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⠿⠿⠿⠛⠁       ⠁⠛⠿⠿⠿⠛⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
-
-
 }

@@ -10,9 +10,7 @@ import java.util.List;
 public class Combat {
     private Gladiator firstAttacker;
     private Gladiator secondAttacker;
-   // private final List<String> combatLog = new ArrayList<>();
-   // private Viewable viewable = new ConsoleView();
-    private DisplayColoredText display = new DisplayColoredText();
+    private final DisplayColoredText display = new DisplayColoredText();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Gladiator simulate(List<Gladiator> gladiatorPair) {
@@ -24,9 +22,9 @@ public class Combat {
         selectOrderOfAttackers(gladiatorPair);
 
         Colosseum colosseum = new Colosseum();
-        display.displayWhiteText(colosseum.starterMessage(firstAttacker, secondAttacker));
+        display.displayRedText(colosseum.starterMessage(firstAttacker, secondAttacker));
         gameplay.pressEnter();
-        display.displayWhiteText(colosseum.starterMessage(firstAttacker, secondAttacker));
+        display.displayRedText(colosseum.starterMessage(firstAttacker, secondAttacker));
 
         while (!firstAttacker.isDefeated() || !secondAttacker.isDefeated()) {
             hitOrMiss(firstAttacker, secondAttacker);
@@ -70,14 +68,4 @@ public class Combat {
         double multiplier = randomNumberGenerator.generateRandomDouble(rangeStart, rangeEnd);
         return attacker.getMaxSp() * multiplier;
     }
-
-//    public List<String> getCombatLog() {
-//        return combatLog;
-//   }
-
-//    private void addToCombatLog(String message) {
-//        combatLog.add(message);
-//    }
-
-
 }

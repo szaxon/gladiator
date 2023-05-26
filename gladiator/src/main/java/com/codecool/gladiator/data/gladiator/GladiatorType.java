@@ -5,4 +5,8 @@ public enum GladiatorType {
     ASSASSIN,
     BRUTAL,
     SWORDSMAN;
+
+
+
+
 }

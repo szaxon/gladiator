@@ -9,7 +9,6 @@ public class Archer extends Gladiator {
         maxHp = hp * StatisticMultiplier.MEDIUM.getMultiplier() * level;
         maxSp = sp * StatisticMultiplier.MEDIUM.getMultiplier() * level;
         currentHp = maxHp;
-
     }
 
     @Override

@@ -6,16 +6,20 @@ import com.codecool.gladiator.logic.RandomNumberGenerator;
 import java.util.Arrays;
 
 public class HitOrMiss {
-    public boolean hitOrMiss(Gladiator attacker, Gladiator defender){
+    public boolean hitOrMiss(Gladiator attacker, Gladiator defender) {
         double attackerDex = attacker.getMaxDex();
         double defenderDex = defender.getMaxDex();
 
-        int chanceOfHitting = (int)Math.min(attackerDex, defenderDex);
+        if (attackerDex > 100) attackerDex = 100;
+        else if (attackerDex < 10) attackerDex = 10;
 
-        chanceOfHitting = 54;
+        if (defenderDex > 100) defenderDex = 100;
+        else if (defenderDex < 10) defenderDex = 10;
+
+        int chanceOfHitting = (int) Math.min(attackerDex, defenderDex);
 
         RandomNumberGenerator random = new RandomNumberGenerator();
-        int randomNumber = random.generateRandom(0,100);
+        int randomNumber = random.generateRandom(0, 100);
 
         return randomNumber <= chanceOfHitting;
     }
