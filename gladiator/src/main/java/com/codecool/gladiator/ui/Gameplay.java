@@ -12,4 +12,8 @@ public class Gameplay {
         System.out.println("please input how many gladiators you  want below");
         return new Scanner(System.in).nextInt();
     }
+
+    public void wrongNumber(){
+        System.out.println("the number has to be a power of two!");
+    }
 }

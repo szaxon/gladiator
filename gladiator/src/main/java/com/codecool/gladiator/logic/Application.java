@@ -10,6 +10,11 @@ import com.codecool.gladiator.ui.Viewable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.ceil;
+import static java.lang.Math.floor;
+
+
+
 public class Application {
     private final Gameplay gameplay = new Gameplay();
     private final Viewable viewable = new ConsoleView();
@@ -17,8 +22,13 @@ public class Application {
     private final Tournament tournament = new Tournament();
     Colosseum colosseum = new Colosseum();
     public void run() {
+
         //get number of gladiators from player
         int amountOfGladiators = gameplay.inputGladiatorNumber();
+        while(!isPowerOfTwo(amountOfGladiators)){
+            gameplay.wrongNumber();
+            amountOfGladiators = gameplay.inputGladiatorNumber();
+        }
         tournament.createTree(amountOfGladiators);
         new DisplayColoredText().displayImage();
         //put gladiators into groups
@@ -54,5 +64,17 @@ public class Application {
                 currentGroups = colosseum.generateGladiatorGroups(0, survived);
             }
         }
+    }
+    private boolean isPowerOfTwo(int n)
+    {
+        if (n == 0)
+            return false;
+
+        while (n != 1) {
+            if (n % 2 != 0)
+                return false;
+            n = n / 2;
+        }
+        return true;
     }
 }
